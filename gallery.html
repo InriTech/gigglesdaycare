@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="favic.png">
+
+	<title>Giggles Daycare | Gallery</title>
+	<meta name="description" content="Explore a day in the life at Giggles Daycare. View our gallery of fun activities, learning environments, and happy children in our Centurion preschool.">
+	<meta name="keywords" content="daycare gallery, preschool photos, childcare activities, Giggles Daycare, centurion">
+	<meta name="author" content="Giggles Daycare">
+
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="fonts/icomoon/style.css">
+	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+
+	<link rel="stylesheet" href="css/tiny-slider.css">
+	<link rel="stylesheet" href="css/aos.css">
+	<link rel="stylesheet" href="css/flatpickr.min.css">
+	<link rel="stylesheet" href="css/glightbox.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		.whatsapp-float {
+			position: fixed;
+			width: 60px;
+			height: 60px;
+			bottom: 40px;
+			right: 40px;
+			background-color: #25d366;
+			color: #FFF;
+			border-radius: 50px;
+			text-align: center;
+			font-size: 30px;
+			box-shadow: 2px 2px 3px #999;
+			z-index: 100;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 0.3s ease;
+		}
+		.whatsapp-float:hover {
+			background-color: #128C7E;
+			transform: scale(1.1);
+		}
+		.whatsapp-icon {
+			margin-top: 5px;
+		}
+	</style>
+	<style>
+		/* Masonry Grid Layout */
+		.masonry-grid {
+			display: grid;
+			grid-gap: 1.5rem;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+			grid-auto-rows: 200px;
+		}
+
+		.masonry-item {
+			position: relative;
+			border-radius: 8px;
+			overflow: hidden;
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+			transition: transform 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		.masonry-item:hover {
+			transform: translateY(-5px);
+			box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+		}
+
+		.masonry-item img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.5s ease;
+		}
+
+		.masonry-item:hover img {
+			transform: scale(1.05);
+		}
+
+		.masonry-caption {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 1rem;
+			background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+			color: white;
+			transform: translateY(100%);
+			transition: transform 0.3s ease;
+		}
+
+		.masonry-item:hover .masonry-caption {
+			transform: translateY(0);
+		}
+
+		/* Different sizes for masonry items */
+		.masonry-item:nth-child(3n) {
+			grid-row-end: span 2;
+		}
+
+		.masonry-item:nth-child(5n) {
+			grid-column-end: span 2;
+		}
+
+		/* Category filter */
+		.filter-nav {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 2rem;
+		}
+
+		.filter-nav button {
+			background: none;
+			border: none;
+			padding: 0.5rem 1.5rem;
+			margin: 0.5rem;
+			font-family: 'Work Sans', sans-serif;
+			font-weight: 600;
+			color: #555;
+			cursor: pointer;
+			border-radius: 30px;
+			transition: all 0.3s ease;
+		}
+
+		.filter-nav button:hover, 
+		.filter-nav button.active {
+			background: #25d366;
+			color: white;
+		}
+
+		/* Lightbox customization */
+		.gslide-title {
+			font-family: 'Work Sans', sans-serif;
+			font-weight: 600;
+			margin-top: 1rem;
+		}
+
+		.gslide-desc {
+			font-family: 'Roboto', sans-serif;
+			color: #666;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="site-mobile-menu site-navbar-target">
+		<div class="site-mobile-menu-header">
+			<div class="site-mobile-menu-close">
+				<span class="icofont-close js-menu-toggle"></span>
+			</div>
+		</div>
+		<div class="site-mobile-menu-body"></div>
+	</div>
+
+	<nav class="site-nav">
+		<div class="container">
+			<div class="menu-bg-wrap">
+				<div class="site-navigation">
+					<div class="row g-0 align-items-center">
+						<div class="col-2">
+							<a href="index.html" class="logo m-0 float-start text-white">Giggles Daycare</a>
+						</div>
+						<div class="col-8 text-center">
+							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
+								<li><a href="index.html">Home</a></li>
+								<li><a href="about.html">About</a></li>
+								<li class="active"><a href="gallery.html">Gallery</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+						<div class="col-2 text-end">
+							<a href="#" class="burger ms-auto float-end site-menu-toggle js-menu-toggle d-inline-block d-lg-none light">
+								<span></span>
+							</a>
+							<a href="#" class="call-us d-flex align-items-center">
+								<span class="icon-phone"></span>
+								<span>+27 67 727 8466</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<div class="hero overlay" style="background-image: url('images/hero_2.jpg')">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-8 text-center mx-auto">
+					<span class="subheading-white text-white mb-3" data-aos="fade-up">Gallery</span>
+					<h1 class="heading text-white mb-2" data-aos="fade-up">A Day at Giggles</h1>
+					<p data-aos="fade-up" class="mb-5 text-white lead text-white-50">Discover the joyful learning experiences at our daycare through these precious moments captured throughout the year.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section">
+		<div class="container">
+			<div class="filter-nav" data-aos="fade-up">
+				<button class="active" data-filter="all">All Activities</button>
+				<button data-filter="learning">Learning Time</button>
+				<button data-filter="play">Play Time</button>
+				<button data-filter="creative">Creative Corner</button>
+				<button data-filter="outdoor">Outdoor Fun</button>
+				<button data-filter="special">Special Events</button>
+			</div>
+
+			<div class="masonry-grid" data-aos="fade-up" data-aos-delay="100">
+				<!-- Learning Time -->
+				<div class="masonry-item" data-category="learning">
+					<a href="images/gallery/gallery1.jpeg" class="glightbox" data-glightbox="title: Story Time; description: Our little ones engaged in morning story time with Teacher Sarah">
+						<img src="images/gallery/gallery1.jpeg" alt="Children listening to story">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="learning">
+					<a href="images/gallery/gallery2.jpeg" class="glightbox" data-glightbox="title: Counting Fun; description: Learning numbers through interactive games">
+						<img src="images/gallery/gallery2.jpeg" alt="Children counting blocks">
+						
+					</a>
+				</div>
+
+				<!-- Play Time -->
+				<div class="masonry-item" data-category="play">
+					<a href="images/gallery/gallery3.jpeg" class="glightbox" data-glightbox="title: Indoor Play; description: Building social skills through group play activities">
+						<img src="images/gallery/gallery3.jpeg" alt="Children playing with blocks">
+						
+					</a>
+				</div>
+
+				<!-- Creative Corner -->
+				<div class="masonry-item" data-category="creative">
+					<a href="images/gallery/gallery4.jpeg" class="glightbox" data-glightbox="title: Finger Painting; description: Exploring colors and textures through sensory art">
+						<img src="images/gallery/gallery4.jpeg" alt="Child finger painting">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="creative">
+					<a href="images/gallery/gallery5.jpeg" class="glightbox" data-glightbox="title: Craft Time; description: Developing fine motor skills with seasonal crafts">
+						<img src="images/gallery/gallery5.jpeg" alt="Children making crafts">
+						
+					</a>
+				</div>
+
+				<!-- Outdoor Fun -->
+				<div class="masonry-item" data-category="outdoor">
+					<a href="images/gallery/gallery6.jpeg" class="glightbox" data-glightbox="title: Sandbox Adventures; description: Our secure outdoor play area with sensory sand play">
+						<img src="images/gallery/gallery6.jpeg" alt="Children playing in sandbox">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="outdoor">
+					<a href="images/gallery/gallery7.jpeg" class="glightbox" data-glightbox="title: Garden Explorers; description: Learning about nature in our child-friendly garden">
+						<img src="images/gallery/gallery7.jpeg" alt="Children looking at plants">
+						
+					</a>
+				</div>
+
+				<!-- Special Events -->
+				<div class="masonry-item" data-category="special">
+					<a href="images/gallery/gallery8.jpeg" class="glightbox" data-glightbox="title: Birthday Celebration; description: Monthly birthday celebrations with healthy treats">
+						<img src="images/gallery/gallery8.jpeg" alt="Children celebrating birthday">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="special">
+					<a href="images/gallery/event2-lg.jpg" class="glightbox" data-glightbox="title: Cultural Day; description: Celebrating diversity through traditional dress and food">
+						<img src="images/gallery/gallery9.jpg" alt="Children in cultural costumes">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="learning">
+					<a href="images/gallery/learning3-lg.jpg" class="glightbox" data-glightbox="title: Bilingual Storytelling; description: English and Afrikaans story time with visual aids">
+						<img src="images/gallery/gallery10.jpg" alt="Teacher reading bilingual book">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="play">
+					<a href="images/gallery/play2-lg.jpg" class="glightbox" data-glightbox="title: Dress Up Corner; description: Imaginative play with our costume collection">
+						<img src="images/gallery/gallery11.jpg" alt="Children dressed in costumes">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="creative">
+					<a href="images/gallery/art3-lg.jpg" class="glightbox" data-glightbox="title: Music Time; description: Exploring rhythm and movement with simple instruments">
+						<img src="images/gallery/gallery13.jpg" alt="Children playing musical instruments">
+						
+					</a>
+				</div>
+
+				<div class="masonry-item" data-category="outdoor">
+					<a href="images/gallery/outdoor3-lg.jpg" class="glightbox" data-glightbox="title: Water Play; description: Summer water activities to beat the heat">
+						<img src="images/gallery/gallery14.jpg" alt="Children playing with water">
+						
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="section sec-cta overlay" style="background-image: url('images/img_v_4-min.jpg')">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 text-center">
+					<h2 class="text-white mb-4">See Our Happy Learners in Person</h2>
+					<p class="text-white-50 mb-5">Schedule a tour to experience our nurturing environment firsthand and meet our caring staff.</p>
+					<p data-aos="fade-up" data-aos-delay="100">
+						<a href="#" class="btn btn-outline-white me-3">Book a Tour</a>
+						<a href="#" class="btn btn-primary">Enquire Now</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Giggles Daycare</h3>
+						<p>A bilingual Christian daycare providing quality early childhood education in a loving environment.</p>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Quick Links</h3>
+						<ul class="list-unstyled float-left links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="about.html">About Us</a></li>
+							<li><a href="gallery.html">Gallery</a></li>
+							<li><a href="contact.html">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Hours</h3>
+						<ul class="list-unstyled links mb-4">
+							<li>Monday-Friday: 7:30am - 6:00pm</li>
+							<li>Saturday: Closed</li>
+							<li>Sunday: Closed</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-6 col-sm-6 col-md-6 col-lg-3">
+					<div class="widget">
+						<h3>Contact</h3>
+						<address>Grace Ave, Opposite Primary School</address>
+						<ul class="list-unstyled links mb-4">
+							<li><a href="tel://+27677278466">+27 67 727 8466</a></li>
+							<li><a href="mailto:info@gigglesdaycare.co.za">info@gigglesdaycare.co.za</a></li>
+						</ul>
+
+						<h3>Connect</h3>
+						<ul class="list-unstyled social">
+							<li><a href="https://www.instagram.com/gigglesdaycare" target="_blank"><span class="icon-instagram"></span></a></li>
+							<li><a href="https://www.facebook.com/share/19DDQRdwdw/"><span class="icon-facebook"></span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col-12 text-center">
+					<p class="copyright">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. Giggles Daycare. All Rights Reserved. By InriTech</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- WhatsApp Float -->
+	<a href="https://wa.me/27677278466" class="whatsapp-float" target="_blank">
+		<i class="icon-whatsapp whatsapp-icon"></i>
+	</a>
+
+	<!-- Loader -->
+	<div id="overlayer"></div>
+	<div class="loader">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/flatpickr.min.js"></script>
+	<script src="js/glightbox.min.js"></script>
+	<script src="js/aos.js"></script>
+	<script src="js/navbar.js"></script>
+	<script src="js/counter.js"></script>
+	<script src="js/custom.js"></script>
+
+	<script>
+		// Initialize GLightbox for image gallery
+		const lightbox = GLightbox({
+			touchNavigation: true,
+			loop: true,
+			autoplayVideos: false
+		});
+
+		// Filter functionality for gallery
+		document.addEventListener('DOMContentLoaded', function() {
+			const filterButtons = document.querySelectorAll('.filter-nav button');
+			const galleryItems = document.querySelectorAll('.masonry-item');
+
+			filterButtons.forEach(button => {
+				button.addEventListener('click', function() {
+					// Update active button
+					filterButtons.forEach(btn => btn.classList.remove('active'));
+					this.classList.add('active');
+
+					const filterValue = this.getAttribute('data-filter');
+
+					// Filter items
+					galleryItems.forEach(item => {
+						if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+							item.style.display = 'block';
+						} else {
+							item.style.display = 'none';
+						}
+					});
+				});
+			});
+
+			// Masonry grid layout adjustment
+			function resizeMasonryItem(item) {
+				const grid = document.querySelector('.masonry-grid');
+				const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
+				const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
+				const content = item.querySelector('img');
+				const rowSpan = Math.ceil((content.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
+				item.style.gridRowEnd = 'span ' + rowSpan;
+			}
+
+			function resizeAllMasonryItems() {
+				const allItems = document.querySelectorAll('.masonry-item');
+				allItems.forEach(item => {
+					resizeMasonryItem(item);
+				});
+			}
+
+			window.addEventListener('load', resizeAllMasonryItems);
+			window.addEventListener('resize', resizeAllMasonryItems);
+		});
+	</script>
+</body>
+</html>
