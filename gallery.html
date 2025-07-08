@@ -9,9 +9,11 @@
 	<meta name="description" content="Explore a day in the life at Giggles Daycare. View our gallery of fun activities, learning environments, and happy children in our Centurion preschool.">
 	<meta name="keywords" content="daycare gallery, preschool photos, childcare activities, Giggles Daycare, centurion">
 	<meta name="author" content="Giggles Daycare">
+	<meta name="theme-color" content="#25d366">
 
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="preload" as="image" href="images/hero_2.jpg">
 
 	<link rel="stylesheet" href="fonts/icomoon/style.css">
 	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
@@ -34,7 +36,7 @@
 			border-radius: 50px;
 			text-align: center;
 			font-size: 30px;
-			box-shadow: 2px 2px 3px #999;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 			z-index: 100;
 			display: flex;
 			align-items: center;
@@ -48,27 +50,52 @@
 		.whatsapp-icon {
 			margin-top: 5px;
 		}
-	</style>
-	<style>
-		/* Masonry Grid Layout */
+
+		/* Collage-style Masonry Grid */
 		.masonry-grid {
 			display: grid;
-			grid-gap: 1.5rem;
-			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-			grid-auto-rows: 200px;
+			grid-gap: 0.5rem;
+			grid-template-columns: repeat(2, 1fr);
+			grid-auto-rows: minmax(150px, auto);
+		}
+
+		@media (min-width: 768px) {
+			.masonry-grid {
+				grid-gap: 1.5rem;
+				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+				grid-auto-rows: 200px;
+			}
+			.masonry-item:nth-child(3n) {
+				grid-row-end: span 2;
+			}
+			.masonry-item:nth-child(5n) {
+				grid-column-end: span 2;
+			}
+		}
+
+		/* Collage patterns for mobile */
+		.masonry-item:nth-child(4n+1) {
+			grid-row: span 2;
+		}
+		.masonry-item:nth-child(6n+4) {
+			grid-column: span 2;
 		}
 
 		.masonry-item {
 			position: relative;
 			border-radius: 8px;
 			overflow: hidden;
-			box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 		}
 
-		.masonry-item:hover {
-			transform: translateY(-5px);
-			box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+		@media (hover: hover) {
+			.masonry-item:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+			}
+			.masonry-item:hover img {
+				transform: scale(1.05);
+			}
 		}
 
 		.masonry-item img {
@@ -78,50 +105,23 @@
 			transition: transform 0.5s ease;
 		}
 
-		.masonry-item:hover img {
-			transform: scale(1.05);
-		}
-
-		.masonry-caption {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			padding: 1rem;
-			background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-			color: white;
-			transform: translateY(100%);
-			transition: transform 0.3s ease;
-		}
-
-		.masonry-item:hover .masonry-caption {
-			transform: translateY(0);
-		}
-
-		/* Different sizes for masonry items */
-		.masonry-item:nth-child(3n) {
-			grid-row-end: span 2;
-		}
-
-		.masonry-item:nth-child(5n) {
-			grid-column-end: span 2;
-		}
-
-		/* Category filter */
+		/* Filter navigation */
 		.filter-nav {
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
-			margin-bottom: 2rem;
+			margin-bottom: 1.5rem;
+			gap: 0.5rem;
 		}
 
 		.filter-nav button {
 			background: none;
 			border: none;
-			padding: 0.5rem 1.5rem;
-			margin: 0.5rem;
+			padding: 0.4rem 1rem;
+			margin: 0.2rem;
 			font-family: 'Work Sans', sans-serif;
 			font-weight: 600;
+			font-size: 0.9rem;
 			color: #555;
 			cursor: pointer;
 			border-radius: 30px;
@@ -134,7 +134,7 @@
 			color: white;
 		}
 
-		/* Lightbox customization */
+		/* Lightbox styles */
 		.gslide-title {
 			font-family: 'Work Sans', sans-serif;
 			font-weight: 600;
@@ -144,6 +144,15 @@
 		.gslide-desc {
 			font-family: 'Roboto', sans-serif;
 			color: #666;
+		}
+
+		/* Image placeholder */
+		.masonry-item img {
+			background-color: #f5f5f5;
+			background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee),
+							  linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee);
+			background-size: 20px 20px;
+			background-position: 0 0, 10px 10px;
 		}
 	</style>
 </head>
@@ -164,7 +173,9 @@
 				<div class="site-navigation">
 					<div class="row g-0 align-items-center">
 						<div class="col-2">
-							<a href="index.html" class="logo m-0 float-start text-white">Giggles Daycare</a>
+							<a href="index.html" class="logo m-0 float-start">
+								<img src="images/logo.png" alt="Giggles Daycare" class="logo-img">
+							</a>
 						</div>
 						<div class="col-8 text-center">
 							<ul class="js-clone-nav d-none d-lg-inline-block text-start site-menu mx-auto">
@@ -216,111 +227,98 @@
 				<!-- Learning Time -->
 				<div class="masonry-item" data-category="learning">
 					<a href="images/gallery/gallery1.jpeg" class="glightbox" data-glightbox="title: Story Time; description: Our little ones engaged in morning story time with Teacher Sarah">
-						<img src="images/gallery/gallery1.jpeg" alt="Children listening to story">
-						
+						<img src="images/gallery/gallery1.jpeg" alt="Children listening to story" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="learning">
 					<a href="images/gallery/gallery2.jpeg" class="glightbox" data-glightbox="title: Counting Fun; description: Learning numbers through interactive games">
-						<img src="images/gallery/gallery2.jpeg" alt="Children counting blocks">
-						
+						<img src="images/gallery/gallery2.jpeg" alt="Children counting blocks" loading="lazy">
 					</a>
 				</div>
 
 				<!-- Play Time -->
 				<div class="masonry-item" data-category="play">
 					<a href="images/gallery/gallery3.jpeg" class="glightbox" data-glightbox="title: Indoor Play; description: Building social skills through group play activities">
-						<img src="images/gallery/gallery3.jpeg" alt="Children playing with blocks">
-						
+						<img src="images/gallery/gallery3.jpeg" alt="Children playing with blocks" loading="lazy">
 					</a>
 				</div>
 
 				<!-- Creative Corner -->
 				<div class="masonry-item" data-category="creative">
 					<a href="images/gallery/gallery4.jpeg" class="glightbox" data-glightbox="title: Finger Painting; description: Exploring colors and textures through sensory art">
-						<img src="images/gallery/gallery4.jpeg" alt="Child finger painting">
-						
+						<img src="images/gallery/gallery4.jpeg" alt="Child finger painting" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="creative">
 					<a href="images/gallery/gallery5.jpeg" class="glightbox" data-glightbox="title: Craft Time; description: Developing fine motor skills with seasonal crafts">
-						<img src="images/gallery/gallery5.jpeg" alt="Children making crafts">
-						
+						<img src="images/gallery/gallery5.jpeg" alt="Children making crafts" loading="lazy">
 					</a>
 				</div>
 
 				<!-- Outdoor Fun -->
 				<div class="masonry-item" data-category="outdoor">
 					<a href="images/gallery/gallery6.jpeg" class="glightbox" data-glightbox="title: Sandbox Adventures; description: Our secure outdoor play area with sensory sand play">
-						<img src="images/gallery/gallery6.jpeg" alt="Children playing in sandbox">
-						
+						<img src="images/gallery/gallery6.jpeg" alt="Children playing in sandbox" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="outdoor">
 					<a href="images/gallery/gallery7.jpeg" class="glightbox" data-glightbox="title: Garden Explorers; description: Learning about nature in our child-friendly garden">
-						<img src="images/gallery/gallery7.jpeg" alt="Children looking at plants">
-						
+						<img src="images/gallery/gallery7.jpeg" alt="Children looking at plants" loading="lazy">
 					</a>
 				</div>
 
 				<!-- Special Events -->
 				<div class="masonry-item" data-category="special">
 					<a href="images/gallery/gallery8.jpeg" class="glightbox" data-glightbox="title: Birthday Celebration; description: Monthly birthday celebrations with healthy treats">
-						<img src="images/gallery/gallery8.jpeg" alt="Children celebrating birthday">
-						
+						<img src="images/gallery/gallery8.jpeg" alt="Children celebrating birthday" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="special">
-					<a href="images/gallery/event2-lg.jpg" class="glightbox" data-glightbox="title: Cultural Day; description: Celebrating diversity through traditional dress and food">
-						<img src="images/gallery/gallery9.jpg" alt="Children in cultural costumes">
-						
+					<a href="images/gallery/gallery9.jpg" class="glightbox" data-glightbox="title: Cultural Day; description: Celebrating diversity through traditional dress and food">
+						<img src="images/gallery/gallery9.jpg" alt="Children in cultural costumes" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="learning">
-					<a href="images/gallery/learning3-lg.jpg" class="glightbox" data-glightbox="title: Bilingual Storytelling; description: English and Afrikaans story time with visual aids">
-						<img src="images/gallery/gallery10.jpg" alt="Teacher reading bilingual book">
-						
+					<a href="images/gallery/gallery10.jpg" class="glightbox" data-glightbox="title: Bilingual Storytelling; description: English and Afrikaans story time with visual aids">
+						<img src="images/gallery/gallery10.jpg" alt="Teacher reading bilingual book" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="play">
-					<a href="images/gallery/play2-lg.jpg" class="glightbox" data-glightbox="title: Dress Up Corner; description: Imaginative play with our costume collection">
-						<img src="images/gallery/gallery11.jpg" alt="Children dressed in costumes">
-						
+					<a href="images/gallery/gallery11.jpg" class="glightbox" data-glightbox="title: Dress Up Corner; description: Imaginative play with our costume collection">
+						<img src="images/gallery/gallery11.jpg" alt="Children dressed in costumes" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="creative">
-					<a href="images/gallery/art3-lg.jpg" class="glightbox" data-glightbox="title: Music Time; description: Exploring rhythm and movement with simple instruments">
-						<img src="images/gallery/gallery13.jpg" alt="Children playing musical instruments">
-						
+					<a href="images/gallery/gallery13.jpg" class="glightbox" data-glightbox="title: Music Time; description: Exploring rhythm and movement with simple instruments">
+						<img src="images/gallery/gallery13.jpg" alt="Children playing musical instruments" loading="lazy">
 					</a>
 				</div>
 
 				<div class="masonry-item" data-category="outdoor">
-					<a href="images/gallery/outdoor3-lg.jpg" class="glightbox" data-glightbox="title: Water Play; description: Summer water activities to beat the heat">
-						<img src="images/gallery/gallery14.jpg" alt="Children playing with water">
-						
+					<a href="images/gallery/gallery14.jpg" class="glightbox" data-glightbox="title: Water Play; description: Summer water activities to beat the heat">
+						<img src="images/gallery/gallery14.jpg" alt="Children playing with water" loading="lazy">
 					</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="section sec-cta overlay" style="background-image: url('images/img_v_1-min.jpg')">
+	<div class="section sec-cta overlay" style="background-image: url('images/gallery/gallery2.jpeg')">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
 					<h2 class="text-white mb-4">See Our Happy Learners in Person</h2>
 					<p class="text-white-50 mb-5">Schedule a tour to experience our nurturing environment firsthand and meet our caring staff.</p>
 					<p data-aos="fade-up" data-aos-delay="100">
-						<a href="#" class="btn btn-outline-white me-3">Book a Tour</a>
-						<a href="#" class="btn btn-primary">Enquire Now</a>
+						<a href="https://wa.me/27677278466?text=Hi%20Giggles%20Daycare,%20I'd%20like%20to%20schedule%20a%20tour." class="btn btn-outline-white me-3" target="_blank">Book a Tour</a>
+						<a href="contact.html" class="btn btn-primary">Enquire Now</a>
 					</p>
 				</div>
 			</div>
@@ -410,56 +408,80 @@
 	<script src="js/custom.js"></script>
 
 	<script>
-		// Initialize GLightbox for image gallery
+		// Initialize GLightbox with optimized settings
 		const lightbox = GLightbox({
 			touchNavigation: true,
 			loop: true,
-			autoplayVideos: false
+			autoplayVideos: false,
+			zoomable: false,
+			openEffect: 'fade',
+			closeEffect: 'fade',
+			cssEfects: {
+				fade: { in: 'fadeIn', out: 'fadeOut' }
+			}
 		});
 
-		// Filter functionality for gallery
+		// Filter functionality with performance improvements
 		document.addEventListener('DOMContentLoaded', function() {
 			const filterButtons = document.querySelectorAll('.filter-nav button');
-			const galleryItems = document.querySelectorAll('.masonry-item');
-
-			filterButtons.forEach(button => {
-				button.addEventListener('click', function() {
-					// Update active button
+			const gallery = document.querySelector('.masonry-grid');
+			
+			document.querySelector('.filter-nav').addEventListener('click', function(e) {
+				if (e.target.tagName === 'BUTTON') {
 					filterButtons.forEach(btn => btn.classList.remove('active'));
-					this.classList.add('active');
-
-					const filterValue = this.getAttribute('data-filter');
-
-					// Filter items
-					galleryItems.forEach(item => {
-						if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-							item.style.display = 'block';
-						} else {
-							item.style.display = 'none';
+					e.target.classList.add('active');
+					
+					const filterValue = e.target.getAttribute('data-filter');
+					const items = gallery.children;
+					
+					requestAnimationFrame(() => {
+						for (let i = 0; i < items.length; i++) {
+							const item = items[i];
+							if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+								item.style.display = 'block';
+							} else {
+								item.style.display = 'none';
+							}
 						}
 					});
-				});
+				}
 			});
 
-			// Masonry grid layout adjustment
-			function resizeMasonryItem(item) {
+			// Only apply masonry layout on desktop
+			function resizeMasonryItems() {
+				if (window.innerWidth < 768) return;
+				
 				const grid = document.querySelector('.masonry-grid');
+				if (!grid) return;
+				
 				const rowGap = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-row-gap'));
 				const rowHeight = parseInt(window.getComputedStyle(grid).getPropertyValue('grid-auto-rows'));
-				const content = item.querySelector('img');
+				const items = grid.querySelectorAll('.masonry-item');
+				
+				items.forEach(item => {
+					const content = item.querySelector('img');
+					if (!content.complete) {
+						content.onload = function() {
+							resizeItem(item, content, rowGap, rowHeight);
+						};
+					} else {
+						resizeItem(item, content, rowGap, rowHeight);
+					}
+				});
+			}
+			
+			function resizeItem(item, content, rowGap, rowHeight) {
 				const rowSpan = Math.ceil((content.getBoundingClientRect().height + rowGap) / (rowHeight + rowGap));
 				item.style.gridRowEnd = 'span ' + rowSpan;
 			}
 
-			function resizeAllMasonryItems() {
-				const allItems = document.querySelectorAll('.masonry-item');
-				allItems.forEach(item => {
-					resizeMasonryItem(item);
-				});
-			}
-
-			window.addEventListener('load', resizeAllMasonryItems);
-			window.addEventListener('resize', resizeAllMasonryItems);
+			let resizeTimer;
+			window.addEventListener('resize', function() {
+				clearTimeout(resizeTimer);
+				resizeTimer = setTimeout(resizeMasonryItems, 100);
+			});
+			
+			resizeMasonryItems();
 		});
 	</script>
 </body>
